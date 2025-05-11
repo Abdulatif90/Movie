@@ -1,0 +1,9 @@
+.movie-add-form{
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background-color: hwb(73 83% 6%);
+    box-shadow: 15px 15px  30px rgba(0, 0, 0, 0.15);
+    font-size: 40x;
+}
+ 
