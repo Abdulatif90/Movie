@@ -9,6 +9,11 @@ import MovieAddFrom from '../movie-add-form/movie-add-form';
 
 
 const App = () => {
+    const data = [
+        {name : "Shaytanat", viewers : 989},
+        {name : "Jaloliddin", viewers : 787},
+        {name : "Osmondagi bolalar", viewers : 784},
+    ]
    
     return (
         <div className='app font-monospace'>
@@ -18,7 +23,7 @@ const App = () => {
                     <SearchPanel/>
                     <AppFilter/>    
                 </div>
-               <MovieList />
+               <MovieList data = {data}/>
                 <MovieAddFrom/>       
                  
             </div>
