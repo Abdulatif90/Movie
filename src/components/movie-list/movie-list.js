@@ -3,11 +3,11 @@ import MovieListItem from '../movie-list-item/movie-list-item'
 
 const MovieList = ({data}) => {
   return (
-    <div className="movie-list">
+    <ul className="movie-list">
       {data.map(item => (
-        <MovieListItem name = {item.name} viewers = {item.viewers}/>
+        <MovieListItem {...item}/>
       ))}
-    </div>
+    </ul>
   )
 }
 
