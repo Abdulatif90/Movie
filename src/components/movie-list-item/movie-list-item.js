@@ -1,15 +1,15 @@
 import "./movie-list-item.css"
 
-const MovieListItem = () => {
+const MovieListItem = ({name, viewers}) => {
   return (
     <li className="list-group-item d-flex justify-content-between">
       <span className="list-group-item-label">
-        Empire of Usman
+        {name}
       </span>
       <input 
       type="number" 
       className="list-group-item-input"
-      defaultValue={989}
+      defaultValue={viewers}
       />
       <div className="d-flex justify-content-center align-items-center">  
         <button type="button" className="btn-cookie btn-sm">

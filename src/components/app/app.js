@@ -6,6 +6,8 @@ import MovieList from '../movie-list/movie-list';
 import MovieAddFrom from '../movie-add-form/movie-add-form';
 
 
+
+
 const App = () => {
    
     return (
@@ -17,7 +19,8 @@ const App = () => {
                     <AppFilter/>    
                 </div>
                <MovieList />
-                <MovieAddFrom/>            
+                <MovieAddFrom/>       
+                 
             </div>
          </div>
     );
