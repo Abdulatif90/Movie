@@ -12,7 +12,7 @@ class User extends Component {
     constructor(props){
         super(props)
         this.state = {
-            counter:0,
+            counter:0, age: " "
         }
     }
    
@@ -23,13 +23,13 @@ class User extends Component {
     //     }) 
     // }   // bu setState har bir o`zgarishi uchun State ga borib + 1 qo`shadi bu esa Statega bog`langanligi uchn sekinro ishlaydi
    
-     clickHandlerUp = () =>{
+    clickHandlerUp = () =>{
         this.setState(prevState => ({
             counter: prevState.counter + 1
         })
     )}
    
-clickHandlerDown = () => {
+    clickHandlerDown = () => {
     this.setState(prevState => {
         if (prevState.counter > 0) {
             return { counter: prevState.counter - 1 };
@@ -45,16 +45,22 @@ clickHandlerDown = () => {
         }) 
     )}
    
+  changeHandler = e =>{
+        this.setState({
+            age: e.target.value
+  })
+    }
+   
 
   render () {
   const {firstname, lastname, link } = this.props   
-  
+  const {counter, age } = this.state
 
   return (
     <div  className="w-50 mx-auto">
       <div className="border p-3 mt-5">
         <h4>
-            Mening ismim - {firstname}, familiyam - {lastname}
+            Mening ismim - {firstname}, familiyam - {lastname}, yoshim -    {age}
         </h4>
         <a href={link}>Youtube kanalim</a>
         <div className="mt-3">
@@ -68,9 +74,16 @@ clickHandlerDown = () => {
             reset
             </button>
             <p className="text-center">
-                {this.state.counter}
+                {counter}
             </p>
         </div>
+        <form>
+            <span>
+                Yoshingiz
+            </span>
+            <input 
+            type="text" className="form-control" onChange={this.changeHandler}/>
+        </form>    
       </div>
     </div>
   )
