@@ -56,8 +56,8 @@ border-bottom: 1px solid #3d5a90;
     transform: translateX(0px);
 }
 
-.list-group-item.increase .list-group-item-label,
-.list-group-item.increase .list-group-item-input {
+.list-group-item.favourite .list-group-item-label,
+.list-group-item.favourite .list-group-item-input {
     color: #e09f3e;
 }
 

@@ -1,19 +1,45 @@
-import { Component } from "react"
-// import './app.css'
-// import AppInfo from "../app-info/app-info";
-// import SearchPanel from "../search-panel/search-panel";
-// import AppFilter from '../app-filter/app-filter';
-// import MovieList from '../movie-list/movie-list';
-// import MovieAddFrom from '../movie-add-form/movie-add-form';
+// import { Component } from "react"
+import './app.css'
+import AppInfo from "../app-info/app-info";
+import SearchPanel from "../search-panel/search-panel";
+import AppFilter from '../app-filter/app-filter';
+import MovieList from '../movie-list/movie-list';
+import MovieAddFrom from '../movie-add-form/movie-add-form';
 
 
+const App = () => {
+    const data = [
+        {name : "Shaytanat", viewers : 989, id: 1},
+        {name : "Jaloliddin", viewers : 787, id: 2},
+        {name : "Osmondagi bolalar", viewers : 784, id: 3},
+    ]
+   
+    return (
+        <div className='app font-monospace'>
+           <div className='content'>
+           <AppInfo/>
+                <div className='search-panel'>
+                    <SearchPanel/>
+                    <AppFilter/>    
+                </div>
+               <MovieList data = {data}/>
+                <MovieAddFrom/>       
+                 
+            </div>
+         </div>
+    );
+    }
+
+
+
+/*
 
 class User extends Component {
     constructor(props){
         super(props)
-        this.state = {
-            counter:0, age: " "
-        }
+        this.state = {counter:0, age: " " }
+        // this.clickHandlerUp= this.clickHandlerUp.bind(this)  // bu  regular function ishlatilganda this ni object thisga boglash
+
     }
    
     // State o`zini mutation qilib bo`lmaydi. o`rniga setStatedan foydalanish kerak
@@ -29,6 +55,13 @@ class User extends Component {
         })
     )}
    
+ // class ichida regular function kelsa uning ichidagi this o`zining context ga ega   
+//  clickHandlerUp() {
+//         this.setState(prevState => ({
+//             counter: prevState.counter + 1
+//         })
+//     )}
+
     clickHandlerDown = () => {
     this.setState(prevState => {
         if (prevState.counter > 0) {
@@ -103,29 +136,5 @@ const App = () => {
 }
 
 
-
-
-// const App = () => {
-//     const data = [
-//         {name : "Shaytanat", viewers : 989, id: 1},
-//         {name : "Jaloliddin", viewers : 787, id: 2},
-//         {name : "Osmondagi bolalar", viewers : 784, id: 3},
-//     ]
-   
-//     return (
-//         <div className='app font-monospace'>
-//            <div className='content'>
-//            <AppInfo/>
-//                 <div className='search-panel'>
-//                     <SearchPanel/>
-//                     <AppFilter/>    
-//                 </div>
-//                <MovieList data = {data}/>
-//                 <MovieAddFrom/>       
-                 
-//             </div>
-//          </div>
-//     );
-//     }
-
+*/
     export default App

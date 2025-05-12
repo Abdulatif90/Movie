@@ -1,13 +1,38 @@
 import { Component } from "react"
 import "./movie-list-item.css"
 
+//class holati
+
+
 class MovieListItem extends Component {
+  constructor(props){
+  super(props)
+  this.state= {favourite: false, like: false}
+}
+
+  onFavourite = () => {
+    this.setState(prevState => ({
+      favourite : !prevState.favourite
+    /* 2 - usul
+    this.setState({favourite} => ({
+      favourite : !favourite
+    */
+    })
+  )}
+
+  onLike = ()=> {
+    this.setState(({like})=>({
+      like: !like
+    })
+  )}
+
   render(){
     const {name, viewers} = this.props
-  
+    const {favourite,like} = this.state
+
   return (
-    <li className="list-group-item d-flex justify-content-between">
-      <span className="list-group-item-label">
+    <li className={`list-group-item d-flex justify-content-between ${favourite &&  'favourite'} ${like && "like"}`}>
+      <span onClick={this.onLike} className="list-group-item-label">
         {name}
       </span>
       <input 
@@ -16,7 +41,7 @@ class MovieListItem extends Component {
       defaultValue={viewers}
       />
       <div className="d-flex justify-content-center align-items-center">  
-        <button type="button" className="btn-cookie btn-sm">
+        <button type="button" className="btn-cookie btn-sm" onClick={this.onFavourite}>
           <i className="fas fa-cookie"></i>
           </button>
           <button type="button" className="btn-trash btn-sm">
@@ -28,6 +53,8 @@ class MovieListItem extends Component {
   )
 }}
 
+
+// functional state
 
 // const MovieListItem = ({name, viewers}) => {
 //   return (
