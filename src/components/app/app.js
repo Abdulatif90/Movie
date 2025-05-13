@@ -1,4 +1,4 @@
-// import { Component } from "react"
+import { Component } from "react"
 import './app.css'
 import AppInfo from "../app-info/app-info";
 import SearchPanel from "../search-panel/search-panel";
@@ -7,14 +7,41 @@ import MovieList from '../movie-list/movie-list';
 import MovieAddFrom from '../movie-add-form/movie-add-form';
 
 
-const App = () => {
-    const data = [
+class App extends Component {
+    constructor(props){
+        super(props)
+        this.state={
+        data : [
         {name : "Shaytanat", viewers : 989, id: 1},
         {name : "Jaloliddin", viewers : 787, id: 2},
         {name : "Osmondagi bolalar", viewers : 784, id: 3},
-    ]
-   
-    return (
+    ]}
+    }
+    
+    // datalarni to`g`ridan to'g'ri o`zgaritirish mumkin emas
+
+     onDelete = id =>{
+        this.setState(({data}) =>{
+            
+        // const newArr = data bunda data dan instins olinyapti yani copy
+        /*  newArr = data.filter(item=> item.id !==id ) bo`lganldi uchun return qilib dataga tenglanganligi uchun filterni returnga tushursak bo`ladi  
+        const newArr = data.filter(item=> item.id !==id )
+          */  
+            // const index = data.findIndex(c => c.id === id)  // index orqali topadi va har bir item ni indexini topadi  
+            // console.log(index)
+            // data.splice(index, 1) // bu datadan shu indexni o`chirib yangi array hosil qiladi. va bunda data mutable bo`lyapti, datani to'g'ridan to'g'ri o`zgartirilyapti
+            // //shuning uchun undan instins of ovolish kerak
+            // console.log(data)
+        return { 
+            // data : newArr  // bu 1 holati
+        data: data.filter(item=> item.id !==id )
+        // bu o`chirilayotga data ham o`chib ketadi.
+        }}
+    )}
+
+   render(){
+    const {data} = this.state   
+    return ( 
         <div className='app font-monospace'>
            <div className='content'>
            <AppInfo/>
@@ -22,7 +49,7 @@ const App = () => {
                     <SearchPanel/>
                     <AppFilter/>    
                 </div>
-               <MovieList data = {data}/>
+               <MovieList data = {data} onDelete= {this.onDelete}/>
                 <MovieAddFrom/>       
                  
             </div>
@@ -30,6 +57,8 @@ const App = () => {
     );
     }
 
+   }
+    
 
 
 /*
