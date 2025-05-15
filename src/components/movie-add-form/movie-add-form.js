@@ -1,13 +1,14 @@
-import { render } from "@testing-library/react";
+
 import "./movie-add-form.css"
 import { Component } from "react";
+
 
 class MovieAddFrom extends Component {
  constructor(props){
   super(props)
   this.state = {
     name : '',
-    views: '',
+    viewers: '',
     phone: '+998-(90)-'
   }
  } 
@@ -15,42 +16,37 @@ class MovieAddFrom extends Component {
  onChangeInput = (e) => {
   this.setState({
     [e.target.name] : e.target.value
-    /* bu avval shunaqa qilib berar edik . lekin bizda inputlar ko`p bo`lsa ularni har birini kiritish qiyin bo`ladi. e - input ning event
-    uning ichida target qismi ham bor
-
-    name: e.target.value,
-    views: e.target.value
-    */
     }) 
  }
 
 render(){
+
+    const {name, viewers} = this.state
+    const { addForm} = this.props
+
   return (
     <div className="movie-add-form">
         <h3> Add new movies </h3>
         
-        <form className="add-form d-flex">
+        <form className="add-form d-flex" onSubmit={e => addForm(e , {name,viewers})}>
             <input 
             type="text"
             className="form-control new-post-label"
             placeholder="which movie?"
              onChange={this.onChangeInput} 
-             name = 'name' />   
+             name = 'name'
+             value={name} />   
              
             <input 
             type="number" 
             className="form-control new-post-label" 
             placeholder="how many has it been seen?" 
             onChange={this.onChangeInput}  
-            name ='views'/> 
+            name ='viewers'
+            value={viewers}
+            /> 
 
-            <input 
-            type="text" 
-            className="form-control new-post-label" 
-            onChange={this.onChangeInput}  
-            name ='phone'
-            value={this.state.phone}/> 
-                  
+        
             <button type="submit" className="btn btn-outline-dark" > Add</button>
          </form>
        
