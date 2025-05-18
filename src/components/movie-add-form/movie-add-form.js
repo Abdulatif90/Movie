@@ -19,6 +19,8 @@ class MoviesAddForm extends Component {
 
 	addFormHandler = e => {
 		e.preventDefault()
+		if (this.state.name==="" || this.state.views === "")
+			return;
 		this.props.addForm({ name: this.state.name, viewers: this.state.views })
 		this.setState({
 			name: '',
