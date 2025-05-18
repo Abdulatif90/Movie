@@ -1,6 +1,16 @@
+<<<<<<< HEAD
 .search-input {
 	padding: 1.5rem;
 	border-radius: 4px;
 	background-color: #fcfaf5;
 	box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15);
 }
+=======
+
+.search-panel{
+    padding: 1.5rem;
+    border-radius: 10px;
+    background-color: hwb(73 83% 6%);
+    box-shadow: 15px 15px  30px rgba(0, 0, 0, 0.15);
+}
+>>>>>>> 51bf0b7319da9a52cf0c48ed10b8ad35edeb3bc1
